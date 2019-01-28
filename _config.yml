@@ -23,7 +23,9 @@ title: Andy Yu
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "aboutme"
+  Home: "yu-andy.github.io
+  Projects: "projects"
+  Resume: "andyYu.pdf"
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - Learn markdown: "http://www.markdowntutorial.com/"
