@@ -1,8 +1,8 @@
 FROM jekyll/jekyll
-
+RUN gem install bundler
+WORKDIR /srv/jekyll
 COPY Gemfile .
-COPY Gemfile.lock .
-
-RUN bundle install --quiet --clean
-
-CMD ["jekyll", "serve"]
+RUN bundle install
+EXPOSE 80
+CMD [ "/usr/gem/bin/bundle", "exec", "/usr/local/bundle/bin/jekyll", "serve", "--port", "80", "--host", "0.0.0.0" ]
+STOPSIGNAL 2
