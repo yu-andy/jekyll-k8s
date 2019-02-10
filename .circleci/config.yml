@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: beautiful-jekyll
+    working_directory: /srv/jekyll
+    steps:
+      - checkout
+      - run:
+        command: ./build-jekyll.sh
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
