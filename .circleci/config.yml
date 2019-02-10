@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: beautiful-jekyll
+      - image: jekyll/jekyll
     working_directory: /srv/jekyll
     steps:
       - checkout
