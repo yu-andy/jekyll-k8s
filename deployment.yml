@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: mywebsite-deployment
+spec:
+  # must match template
+  selector:
+    matchLabels:
+      app: mywebsite-deployment
+  template:
+    metadata:
+      labels:
+        app: mywebsite-deployment
+    spec:
+      containers:
+      - name: mywebsite-container
+        image: gcr.io/mywebsite-231113/mywebsite:latest
+        imagePullPolicy: Always
+        ports:
+        # we must expose 80 in Dockerfile too
+        - containerPort: 80

@@ -7,9 +7,52 @@ jobs:
     steps:
       - checkout
       - run:
+          # we need sh here for permissions
           command: sh ./build-jekyll.sh
+          environment:
+            JEKYLL_ENV: production     
+      - persist_to_workspace:
+          root: /srv/jekyll
+          paths:
+            - _site
+  containerise:
+    docker:
+      - image: google/cloud-sdk:latest
+    steps:
+      - setup_remote_docker
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          command: sh ./authenticate-gcloud.sh
+      - run:
+          command: docker build -t gcr.io/mywebsite-231113/mywebsite
+      - run:
+          name: Push docker image
+          command: docker push gcr.io/mywebsite-231113/mywebsite:latest
+  deploy-production:
+    docker:
+      - image: google/cloud-sdk:latest
+    steps:
+      - checkout
+      - run:
+          commmand: sh ./authenticate-gcloud.sh
+      - run:
+          command: sh ./deploy.sh
 workflows:
   version: 2
-  build:
+  build-containerise:
     jobs:
       - build
+      - containerise:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master  
+      - deploy-production:
+          requires:
+            - containerise
+          filters:
+            branches:
+              only: master
