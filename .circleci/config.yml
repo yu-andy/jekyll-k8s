@@ -26,7 +26,7 @@ jobs:
       - run:
           command: sh ./authenticate-gcloud.sh
       - run:
-          command: docker build -t gcr.io/mywebsite-231113/mywebsite
+          command: docker build -t gcr.io/mywebsite-231113/mywebsite .
       - run:
           name: Push docker image
           command: docker push gcr.io/mywebsite-231113/mywebsite:latest
