@@ -6,11 +6,11 @@ spec:
   # must match template
   selector:
     matchLabels:
-      app: mywebsite-deployment
+      app: mywebsite
   template:
     metadata:
       labels:
-        app: mywebsite-deployment
+        app: mywebsite
     spec:
       containers:
       - name: mywebsite-container

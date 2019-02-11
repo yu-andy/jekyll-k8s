@@ -4,7 +4,7 @@ metadata:
   name: mywebsite-service
 spec:
   selector:
-    app: mywebsite-service
+    app: mywebsite
   type:  LoadBalancer
   loadBalancerIP: 35.227.238.216
   # expose ports
