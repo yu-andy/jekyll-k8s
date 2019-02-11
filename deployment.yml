@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mywebsite-deployment
 spec:
-  # must match template
+  # must match template.
   selector:
     matchLabels:
       app: mywebsite
