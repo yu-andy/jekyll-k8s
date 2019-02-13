@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: jekyll/jekyll
+      - image: jekyll/jekyll:3.5.0
     working_directory: /srv/jekyll
     steps:
       - checkout
