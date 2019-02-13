@@ -2,5 +2,4 @@
 
 set -xe
 
-mkdir -p _site
 jekyll build
