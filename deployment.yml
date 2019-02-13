@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mywebsite-container
-        image: gcr.io/mywebsite-231113/mywebsite:${TAG}
+        image: gcr.io/mywebsite-231113/mywebsite:latest
         imagePullPolicy: Always
         ports:
         # we must expose 80 in Dockerfile too
