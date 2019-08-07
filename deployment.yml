@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mywebsite-container
-        image: gcr.io/mywebsite-231113/mywebsite:latest
+        image: gcr.io/clean-sylph-201205/mywebsite:latest
         imagePullPolicy: Always
         ports:
         # we must expose 80 in Dockerfile too
