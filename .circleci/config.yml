@@ -26,10 +26,10 @@ jobs:
       - run:
           command: sh ./authenticate-gcloud.sh
       - run:
-          command: docker build -t gcr.io/mywebsite-231113/mywebsite:latest .
+          command: docker build -t gcr.io/clean-sylph-201205/mywebsite:latest .
       - run:
           name: Push docker image
-          command: docker push gcr.io/mywebsite-231113/mywebsite:latest
+          command: docker push gcr.io/clean-sylph-201205/mywebsite:latest
   deploy-production:
     docker:
       - image: google/cloud-sdk:latest
